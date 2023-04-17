@@ -17,7 +17,6 @@
 
 namespace SilverWare\Calendar\Extensions;
 
-use SilverStripe\Core\Convert;
 use SilverStripe\Core\Extension;
 use SilverStripe\Forms\FormField;
 
@@ -153,6 +152,6 @@ class FormFieldExtension extends Extension
      */
     public function getCalendarConfigJSON()
     {
-        return Convert::array2json($this->owner->getCalendarConfig(), JSON_FORCE_OBJECT);
+        return json_encode($this->owner->getCalendarConfig(), JSON_THROW_ON_ERROR | JSON_FORCE_OBJECT);
     }
 }
